@@ -1,12 +1,23 @@
 <template>
-    <div class="container">
-        <h2> Coontenido Home </h2>
+    <div class="Home">
+        <Menu></Menu>
+        <div>
+            <h1> Contenido HOME </h1>
+            <div>
+                <img src="../assets/senado.png">
+            </div>
+            <div>
+                <img src="../assets/senado.png">
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+    import Menu from "./Menu";
     export default {
-        name: "Home"
+        name: "Home",
+        components: {Menu}
     }
 </script>
 
