@@ -282,7 +282,25 @@ constructed stylesheet
     vertical-align: top;
     margin-top: 24px;
 }
-constructed stylesheet
+.andes-form-control--textfield .andes-form-control__label {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    -webkit-transform-origin: left 50% 0;
+    transform-origin: left 50% 0;
+    -webkit-transition: .2s ease-out;
+    transition: .2s ease-out;
+    -webkit-transition-property: color,-webkit-transform;
+    transition-property: color,-webkit-transform;
+    transition-property: transform,color;
+    transition-property: transform,color,-webkit-transform;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: text;
+}
 .andes-form-control {
     font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
     font-size: 18px;
@@ -292,4 +310,24 @@ constructed stylesheet
     display: block;
     -webkit-font-smoothing: antialiased;
     text-align: left;
+}
+.andes-form-control__label {
+    font-size: 1em;
+    line-height: 1;
+    color: rgba(0,0,0,.45);
+    -webkit-transition: .2s ease-out;
+    transition: .2s ease-out;
+    -webkit-transition-property: color,-webkit-transform;
+    transition-property: color,-webkit-transform;
+    transition-property: transform,color;
+    transition-property: transform,color,-webkit-transform;
+}
+.andes-form-control__border {
+    position: relative;
+    background-color: rgba(0,0,0,.25);
+    height: 1px;
+    width: 100%;
+}
+.andes-form-control__message {
+    min-height: 14px;
 }
