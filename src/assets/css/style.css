@@ -126,10 +126,11 @@ button:hover {
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 0 4px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    text-align: center;
 }
 
 /* Extra styles for the cancel button */
@@ -256,4 +257,39 @@ input:hover,
 .google {
     background-color: #dd4b39;
     color: white;
+}
+
+/* 2DO REGISTRO */
+.register-card {
+    margin: 32px 0;
+    padding: 18px 0 22px 30px;
+    overflow: visible;
+}
+constructed stylesheet
+.ui-card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    overflow: hidden;
+}
+.register-card .ui-form {
+    display: inline-block;
+    margin-right: 35px;
+}
+.register-card .ui-form .register-input {
+    display: inline-block;
+    width: 256px;
+    vertical-align: top;
+    margin-top: 24px;
+}
+constructed stylesheet
+.andes-form-control {
+    font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    font-size: 18px;
+    position: relative;
+    padding-top: .66667em;
+    font-weight: 400;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
 }

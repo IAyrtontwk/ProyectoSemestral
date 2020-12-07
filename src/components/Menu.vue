@@ -36,7 +36,7 @@
 
                     <button class="loginbtn" type="submit">Iniciar Sesión</button>
                     <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                        <input type="checkbox" checked="checked" name="remember"> Recordarme
                     </label>
                     <span class="psw"><a href="#">Olvidó su contraseña?</a></span>
                 </div>
