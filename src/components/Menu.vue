@@ -28,8 +28,8 @@
                 </div>
                 <h3> Iniciar Sesión</h3>
                 <div class="container">
-                    <label for="uname"><b>Nombre de usuario</b></label>
-                    <input type="text" placeholder="Ingrese su usuario" name="uname" required>
+                    <label for="uname"><b>Email</b></label>
+                    <input type="text" placeholder="Ingrese su correo electronico" name="uname" required>
 
                     <label for="psw"><b>Contraseña</b></label>
                     <input type="password" placeholder="Contraseña" name="psw" required>
