@@ -305,7 +305,6 @@ constructed stylesheet
     font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
     font-size: 18px;
     position: relative;
-    padding-top: .66667em;
     font-weight: 400;
     display: block;
     -webkit-font-smoothing: antialiased;
@@ -330,4 +329,24 @@ constructed stylesheet
 }
 .andes-form-control__message {
     min-height: 14px;
+}
+/* TABLA */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: center;
+    padding: 16px;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
 }

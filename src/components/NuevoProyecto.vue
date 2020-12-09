@@ -12,15 +12,18 @@
                             </div>
                             <div class="andes-form-control__border"></div>
                             <span class="andes-form-control__message"></span>
-                        </label></div><div class="ui-form business_name">
-                    <label class="andes-form-control andes-form-control--textfield register-input">
-                        <div class="andes-form-control__control">
-                            <span class="andes-form-control__label">Estado del proyecto</span>
-                            <input type="text" value="" id="business_name" name="business_name" rows="1" class="andes-form-control__field" maxlength="120">
-                        </div>
-                        <div class="andes-form-control__border"></div>
-                        <span class="andes-form-control__message"></span>
-                    </label></div>
+                        </label>
+                    </div>
+                    <div class="ui-form business_name">
+                        <label class="andes-form-control andes-form-control--textfield register-input">
+                            <div class="andes-form-control__control">
+                                <span class="andes-form-control__label">Estado del proyecto</span>
+                                <input type="text" value="" id="business_name" name="business_name" rows="1" class="andes-form-control__field" maxlength="120">
+                            </div>
+                            <div class="andes-form-control__border"></div>
+                            <span class="andes-form-control__message"></span>
+                        </label>
+                    </div>
                     <div class="ui-form email">
                     <label class="andes-form-control andes-form-control--textfield register-input">
                         <div class="andes-form-control__control">
