@@ -2,79 +2,52 @@
     box-sizing: border-box;
 }
 #app{
-    border: 5px solid black;
-    background-color: cornsilk;
-}
-button {
-    background-color: darkred;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    outline: none;
-    display: block;
-    cursor: pointer;
-    width: auto;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-.container{
     border: 1px solid black;
-    display: grid;
-    grid-template-columns: auto;
-    background-color: #2196F3;
-    padding: 10px;
-    position: relative;
-    border-radius: 5px;
+    background-color: #aaa45a;
 }
+form {border: 3px solid #f1f1f1;}
 
-.container > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid black;
-    text-align: center;
-}
-/* Menu Header */
 .topnav{
+    background-color: #eee2e2;
     overflow: hidden;
-    background-color: #333;
+    display: flex;
+    justify-content: space-between;
 }
 .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    background-color: black;
-    text-align: center;
-    padding: 20px 10px;
-    text-decoration: none;
-    font-size: 17px;
-}.topnav button {
      float: left;
-     border: none;
-     color: #f2f2f2;
-     background-color: black;
+     color: black;
      text-align: center;
-     padding: 20px 10px;
+     padding: 14px 16px;
      text-decoration: none;
-     font-size: 17px;
-     margin: auto;
+     font-size: 15px;
  }
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-.topnavleft{
-    float: left;
+    background-color: #7b317b;
+    color: white;
 }
 .topnavright{
     float: right;
 }
-/* Boton Nuevo */
+.topnavleft{
+    float: left;
+}
 .dropdown {
     float: left;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.dropdown .dropbtn {
+    font-size: 15px;
+    border: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+}
+.topnav a:hover .dropdown:hover .dropbtn:hover .navlogin:hover{
+    background-color: #7b317b;
+    color: white;
 }
 .dropdown-content {
     display: none;
@@ -86,15 +59,11 @@ button:hover {
 }
 .dropdown-content a {
     float: none;
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
-}
-
-.topnav a:hover, .dropdown:hover .dropbtn {
-    background-color: #555;
-    color: white;
 }
 
 .dropdown-content a:hover {
@@ -104,61 +73,46 @@ button:hover {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-/* HOME */
-.Home{
-    border: 1px solid green;
-    background-color: darkolivegreen;
+.navlogin{
+    font-size: 15px;
+    border: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
 }
-.col {
-    float: left;
-    width: 50%;
-    margin: auto;
-    padding: 10px;
-}
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* LOGIN */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0 4px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-
-/* Center the image and position the close button */
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
     position: relative;
 }
-
-img.avatar {
-    width: 20%;
-    border-radius: 50%;
+.btn {
+    background: #7b317b;
+    color: white;
+    border: solid 1px;
+    border-radius: 2em;
+    font: inherit;
+    margin: 0px 25%;
+    padding: 0.75em 2em;
+    display: block;
+    text-align: center;
 }
-
-span.psw {
-    float: right;
-    padding-top: 16px;
+.rsbtn{
+    width: 50%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    margin: 5px 25%;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
 }
-
-/* The Modal (background) */
-.modal {
+.rsbtn:hover {
+    opacity: 1;
+}
+.loginbox {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -171,16 +125,12 @@ span.psw {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
 }
-
-/* Modal Content/Box */
-.modal-content {
+.formlogin {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
 }
-
-/* The Close Button (x) */
 .close {
     position: absolute;
     right: 25px;
@@ -189,61 +139,39 @@ span.psw {
     font-size: 35px;
     font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
     color: red;
     cursor: pointer;
 }
-
-/* Add Zoom Animation */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
 .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
 }
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
+.label-form {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
 }
-
-@keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+.borderinput{
+    position: relative;
+    background-color: rgba(0,0,0,.25);
+    height: 1px;
 }
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
-}
-
-/* style inputs and link buttons */
-input,
-.btn {
-    width: 100%;
+input.login-form, select, textarea {
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    border: 2px solid var(--neutralShade3);
     padding: 12px;
-    border: none;
-    border-radius: 4px;
-    margin: 5px 0;
-    opacity: 0.85;
+    font-family: "Poppins";
+    border-radius: var(--borderRadius);
     display: inline-block;
-    font-size: 17px;
-    line-height: 20px;
-    text-decoration: none; /* remove underline from anchors */
 }
-
-input:hover,
-.btn:hover {
-    opacity: 1;
-}
-
-/* add appropriate colors to fb, twitter and google buttons */
 .fb {
     background-color: #3B5998;
     color: white;
@@ -258,95 +186,39 @@ input:hover,
     background-color: #dd4b39;
     color: white;
 }
-
-/* 2DO REGISTRO */
-.register-card {
-    margin: 32px 0;
-    padding: 18px 0 22px 30px;
-    overflow: visible;
-}
-constructed stylesheet
-.ui-card {
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.2);
-    overflow: hidden;
-}
-.register-card .ui-form {
+.container {
     display: inline-block;
-    margin-right: 35px;
-}
-.register-card .ui-form .register-input {
-    display: inline-block;
-    width: 256px;
-    vertical-align: top;
-    margin-top: 24px;
-}
-.andes-form-control--textfield .andes-form-control__label {
-    position: absolute;
-    top: 7px;
-    left: 0;
-    -webkit-transform: translateY(5px);
-    transform: translateY(5px);
-    -webkit-transform-origin: left 50% 0;
-    transform-origin: left 50% 0;
-    -webkit-transition: .2s ease-out;
-    transition: .2s ease-out;
-    -webkit-transition-property: color,-webkit-transform;
-    transition-property: color,-webkit-transform;
-    transition-property: transform,color;
-    transition-property: transform,color,-webkit-transform;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    cursor: text;
-}
-.andes-form-control {
-    font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
-    font-size: 18px;
     position: relative;
-    font-weight: 400;
-    display: block;
-    -webkit-font-smoothing: antialiased;
-    text-align: left;
+    padding: 5px;
 }
-.andes-form-control__label {
-    font-size: 1em;
-    line-height: 1;
-    color: rgba(0,0,0,.45);
-    -webkit-transition: .2s ease-out;
-    transition: .2s ease-out;
-    -webkit-transition-property: color,-webkit-transform;
-    transition-property: color,-webkit-transform;
-    transition-property: transform,color;
-    transition-property: transform,color,-webkit-transform;
-}
-.andes-form-control__border {
-    position: relative;
-    background-color: rgba(0,0,0,.25);
-    height: 1px;
-    width: 100%;
-}
-.andes-form-control__message {
-    min-height: 14px;
-}
-/* TABLA */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
 }
 
-th, td {
-    text-align: center;
-    padding: 16px;
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
 }
 
-th:first-child, td:first-child {
-    text-align: left;
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2
+@media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
 }

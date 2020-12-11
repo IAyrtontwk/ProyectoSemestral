@@ -9,6 +9,7 @@ import NuevoPerfil from "./components/NuevoPerfil";
 import BuscarEnPais from "./components/BuscarEnPais";
 import PerfilCongresista from "./components/PerfilCongresista";
 import NuevoProyecto from "./components/NuevoProyecto";
+import EditarProyecto from "./components/EditarProyecto";
 import Error from "./components/Error";
 
 Vue.config.productionTip = false;
@@ -24,6 +25,7 @@ const routes = [
   {path: '/perfilcongresista', component: PerfilCongresista},
   {path: '/nuevoperfil', component: NuevoPerfil},
   {path: '/nuevoproyecto', name: NuevoProyecto, component: NuevoProyecto},
+  {path: '/editarproyecto', name: EditarProyecto, component: EditarProyecto},
   {path: '*', component: Error}
 ]
 
