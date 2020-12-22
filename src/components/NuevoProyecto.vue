@@ -1,69 +1,59 @@
 <template>
     <div class="container">
         <h1> Contenido de nuevo Proyecto</h1>
-        <form style="border:1px solid #ccc">
-            <div class="ui-card  register-card ">
-                <div>
-                    <div class="ui-form tax_id">
-                        <label class="andes-form-control andes-form-control--textfield register-input">
-                            <div class="andes-form-control__control">
-                                <span class="andes-form-control__label">Titulo del proyecto</span>
-                                <input type="text" value="" id="tax_id" name="tax_id" rows="1" class="andes-form-control__field" maxlength="120">
-                            </div>
-                            <div class="andes-form-control__border"></div>
-                            <span class="andes-form-control__message"></span>
-                        </label>
-                    </div>
-                    <div class="ui-form business_name">
-                        <label class="andes-form-control andes-form-control--textfield register-input">
-                            <div class="andes-form-control__control">
-                                <span class="andes-form-control__label">Estado del proyecto</span>
-                                <input type="text" value="" id="business_name" name="business_name" rows="1" class="andes-form-control__field" maxlength="120">
-                            </div>
-                            <div class="andes-form-control__border"></div>
-                            <span class="andes-form-control__message"></span>
-                        </label>
-                    </div>
-                    <div class="ui-form email">
-                    <label class="andes-form-control andes-form-control--textfield register-input">
-                        <div class="andes-form-control__control">
-                            <span class="andes-form-control__label">Fecha del proyecto</span>
-                            <input type="text" value="" id="email" name="email" rows="1" class="andes-form-control__field" maxlength="120">
-                        </div>
-                        <div class="andes-form-control__border"></div>
-                        <span class="andes-form-control__message">Colocar calendario</span>
-                    </label>
-                    </div>
-                    <div class="ui-form url">
-                        <label class="andes-form-control andes-form-control--textfield andes-form-control--error register-input">
-                            <div class="andes-form-control__control">
-                                <span class="andes-form-control__label">URL del proyecto</span>
-                                <input type="text" value="" id="url" name="url" rows="1" class="andes-form-control__field" maxlength="20">
-                            </div>
-                            <div class="andes-form-control__border"></div>
-                            <span class="andes-form-control__message">Ingresa una url válida</span>
-                        </label>
-                    </div>
-                    <div class="ui-form url-vot">
-                        <label class="andes-form-control andes-form-control--textfield andes-form-control--error register-input">
-                            <div class="andes-form-control__control">
-                                <span class="andes-form-control__label">URL de la votacion</span>
-                                <input type="text" value="" id="url-vot" name="url-vot" rows="1" class="andes-form-control__field" maxlength="20">
-                            </div>
-                            <div class="andes-form-control__border"></div>
-                            <span class="andes-form-control__message">Se deberia mostrar si se elige el estado Terminado</span>
-                        </label>
-                    </div>
-                    <button type="submit" class="registerbtn">Finalizar</button>
-                </div>
+            <div>
+                <br>Camara alta<input type="radio" name="camara" v-model="camara" value="4">
+                <br>Camara baja<input type="radio" name="camara" v-model="camara" value="5">
+                <br><b>Titulo Proyecto:</b><input v-model="titulo" type="text" >
+                <br>Aprobado<input type="radio" name="estado" v-model="estado" value="1">
+                Rechazado<input type="radio" name="estado" v-model="estado" value="2">
+                En tramite<input type="radio" name="estado" v-model="estado" value="3">
+                <!---- SELECT QUE NO SIRVE
+                <br><b>Estado del Proyecto:</b><select v-model="seleccionEstado">
+                    <option v-for="opcion in opcionesEstado" :key="opcion.value">
+                        {{ opcion.text }}
+                    </option>
+                </select>
+                ------>
+                <br><b>Fecha del proyecto:</b><input v-model="fecha" type="text" >
+                <br><b>URL del Proyecto:</b><input v-model="urlProyecto" type="url" >
+                <br><b>URL Votacion:</b><input v-model="urlVotacion" type="url" >
+                <br><button @click="nuevoProyecto(titulo, seleccionEstado, fecha, camara, urlProyecto, urlVotacion)">Finalizar</button>
             </div>
-        </form>
     </div>
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
-        name: "NuevoProyecto"
+        name: "NuevoProyecto",
+        data() {
+            return {
+                proyectos: null,
+                estado: ''
+                /*
+                seleccionEstado: '',
+                opcionesEstado: [{ text: 'Aprobado', value: '1'},
+                                 { text: 'Rechazado', value: '2'},
+                                { text: 'En tramite', value: '3'}]
+                */
+            }
+        },
+        methods: {
+            nuevoProyecto(tituloP, estadoP, fechaP, camaraP, urlProy, urlVot) {
+                const proyectoNuevo = {
+                    titulo: tituloP,
+                    estado: estadoP,
+                    fecha: fechaP,
+                    camara: camaraP,
+                    urlProyecto: urlProy,
+                    urlVotacion: urlVot,
+                };
+                axios.post('http://127.0.0.1:8000/api/proyectos', proyectoNuevo)
+                .then(response => {this.proyectos.push(response.data.data);
+                alert("Proyecto Guardado")})
+            },
+        }
     }
 </script>
 

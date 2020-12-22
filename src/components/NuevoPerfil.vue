@@ -1,62 +1,71 @@
 <template>
     <div class="container">
         <h1> Contenido Nuevo Perfil Honorable</h1>
-        <form action="/action_page.php">
-            <div class="ui-card">
-                <div class="ui-form fname">
-                    <label class="andes-form-control andes-form-control--textfield register-input"></label>
-                    <div class="andes-form-control__control">
-                        <span class="andes-form-control__label">Nombre Congresista</span>
-                        <input type="text" value="" id="fname" name="fname" rows="1" class="andes-form-control__field" maxlength="120">
-                    </div>
-                    <div class="andes-form-control__border"></div>
-                    <span class="andes-form-control__message"></span>
-                </div>
-                <div class="ui-form lname">
-                    <label class="andes-form-control andes-form-control--textfield register-input"></label>
-                    <div class="andes-form-control__control">
-                        <span class="andes-form-control__label">Apellidos</span>
-                        <input type="text" value="" id="lname" name="lname" rows="1" class="andes-form-control__field" maxlength="120">
-                    </div>
-                    <div class="andes-form-control__border"></div>
-                    <span class="andes-form-control__message"></span>
-                </div>
-                <div class="ui-form partido">
-                    <label class="andes-form-control andes-form-control--textfield register-input"></label>
-                    <div class="andes-form-control__control">
-                        <span class="andes-form-control__label">Partido Politico</span>
-                        <input type="text" value="" id="partido" name="partido" rows="1" class="andes-form-control__field" maxlength="120">
-                    </div>
-                    <div class="andes-form-control__border"></div>
-                    <span class="andes-form-control__message"></span>
-                </div>
-                <div class="ui-form territorio">
-                    <label class="andes-form-control andes-form-control--textfield register-input"></label>
-                    <div class="andes-form-control__control">
-                        <span class="andes-form-control__label">Circunscripción/Distrito</span>
-                        <input type="text" value="" id="territorio" name="territorio" rows="1" class="andes-form-control__field" maxlength="120">
-                    </div>
-                    <div class="andes-form-control__border"></div>
-                    <span class="andes-form-control__message"></span>
-                </div>
-                <div class="ui-form email">
-                    <label class="andes-form-control andes-form-control--textfield register-input"></label>
-                    <div class="andes-form-control__control">
-                        <span class="andes-form-control__label">Email contacto</span>
-                        <input type="text" value="" id="email" name="email" rows="1" class="andes-form-control__field" maxlength="120">
-                    </div>
-                    <div class="andes-form-control__border"></div>
-                    <span class="andes-form-control__message"></span>
-                </div>
-                <button class="btn" type="submit">Finalizar</button>
-            </div>
-        </form>
+        <div>
+            <br>Senador<input type="radio" name="camara" v-model="camara" value="4">
+            Diputado<input type="radio" name="camara" v-model="camara" value="5">
+            <br><b>Nombre Congresista:  </b><input v-model="nombre" type="text" >
+            <br><b>Apellidos Congresista:   </b><input v-model="apellidos" type="text" >
+            <!------ Seleccion territorio manual
+            <br>Cisrcunscripcion<input type="radio" name="territorio" v-model="territorio" value="7">
+            Distrito<input type="radio" name="territorio" v-model="territorio" value="8">
+            ------->
+            <br><b>Numero territorio:   </b><input v-model="numTerritorio" type="number" >
+            <br><b>Email :  </b><input v-model="email" type="text" >  
+
+            <br><b>Partido Politico:    </b><select v-model="partidoPolitico">
+                <option v-for="partido in partidos" v-bind:key="partido.value">
+                    {{ partido.text }}
+                </option>
+            </select>
+            <p> {{ partidoPolitico }} </p>
+
+        </div>
+        <button @click="nuevoPerfil(camara, nombre, apellidos, numTerritorio, partidoPolitico, email)">
+            <router-link to='/home'> Finalizar </router-link>
+        </button>
     </div>
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
-        name: "NuevoPerfil"
+        name: "NuevoPerfil",
+        data() {
+            return {
+                perfiles: null,
+                territorioC: null,
+                partidoPolitico: null,
+                partidos: [ { text: 'Independiente', value: '9'},
+                            { text: 'Oposicion1', value: '10'},
+                            { text: 'Oposicion2', value: '11'},
+                            { text: 'Oposicion3', value: '12'},
+                            { text: 'Oficialismo1', value: '13'},
+                            { text: 'Oficialismo2', value: '14'},
+                            { text: 'Oficialismo3', value: '15'}]
+            }
+        },
+        methods: {
+            nuevoPerfil(camaraC, nombreC, apellidosC, numTerritorioC, partidoC, emailC) {
+                if(camaraC == 4) {
+                    this.territorioC = 8
+                }else{
+                    this.territorioC = 7
+                }
+                const perfilNuevo = {
+                    camara: camaraC,
+                    nombre: nombreC,
+                    apellidos: apellidosC,
+                    territorio: this.territorioC,
+                    numTerritorio: numTerritorioC,
+                    partido: partidoC,
+                    email: emailC
+                };
+                axios.post('http://127.0.0.1:8000/api/perfiles', perfilNuevo)
+                .then(response => {this.perfiles.push(response.data.data);
+                alert("Perfil Guardado")})
+            },
+        },
     }
 </script>
 

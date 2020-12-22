@@ -5,7 +5,6 @@
     border: 1px solid black;
     background-color: #aaa45a;
 }
-form {border: 3px solid #f1f1f1;}
 
 .topnav{
     background-color: #eee2e2;
@@ -188,7 +187,7 @@ input.login-form, select, textarea {
     color: white;
 }
 .container {
-    display: inline-block;
+    display: block;
     position: relative;
     padding: 5px;
 }
@@ -223,3 +222,24 @@ input.login-form, select, textarea {
         text-align: left;
     }
 }
+
+.row {
+    display: block; 
+}
+
+.col {
+    padding: 50px;
+    display: inline-block;
+}
+
+.tablaProyectos {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    align-items: center;
+}
+
+.footer {
+    margin-top: 20px;
+  }

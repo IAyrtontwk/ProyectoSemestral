@@ -1,7 +1,7 @@
 <template>
     <div class="Home">
         <div class="container">
-            <h1> Contenido HOME </h1>
+            <h3> Contenido HOME </h3>
             <div class="row">
                 <div class="col">
                     <router-link to="/senadores">
@@ -17,10 +17,12 @@
                 </div>
             </div>
             <div class="row">
-                <router-link to="/buscarpais">
-                    <img src="../assets/senado.png" alt="imagenpais">
-                    <p>BuscarPais</p>
-                </router-link>
+                <div class="col">
+                     <router-link to="/buscarpais">
+                        <img src="../assets/senado.png" alt="imagenpais">
+                        <p>BuscarPais</p>
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>

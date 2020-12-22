@@ -1,40 +1,47 @@
 <template>
     <div class="container">
-        <form action="/action_page.php">
-            <div class="card">
-                <h1>Registro de nuevo usuario</h1>
-                <p> Todos los datos son obligatorios.</p>
-                <div class="cardformin">
-                    <label for="fname"><b>Nombre: </b></label>
-                    <input type="text" placeholder="Ingrese su nombre" name="fname" id="fname" required>
-                </div>
-                <hr>
-                <div class="cardformin">
-                    <label for="lname"><b>Apellido: </b></label>
-                    <input type="text" placeholder="Ingrese su apellido" name="lname" id="lname" required>
-                </div>
-                <div class="cardformin">
-                    <label for="email"><b>Email: </b></label>
-                    <input type="text" placeholder="Ingrese su email" name="email" id="email" required>
-                </div>
-                <div class="cardformin">
-                    <label for="psw"><b>Contraseña: </b></label>
-                    <input type="password" placeholder="Contraseña" name="psw" id="psw" required>
-                </div>
-                <div class="cardformin">
-                    <label for="psw-repeat"><b>Repetir contraseña: </b></label>
-                    <input type="password" placeholder="Repetir contraseña" name="psw-repeat" id="psw-repeat" required>
-                </div>
-                <hr>
-                <button type="submit" class="registerbtn">Finalizar</button>
+        <div class="cardRegistro">
+            <h3>Registro de nuevo usuario</h3>
+            <p> Todos los datos son obligatorios.</p>
+            <hr>
+            <div>
+            <b>Nombre: </b><input v-model="nombre" type="text" placeholder="Ingrese su nombre" required>
+            <br><b>Apellido: </b><input v-model="apellido" type="text" placeholder="Ingrese su apellido" required>
+            <br><b>Email: </b><input v-model="email" type="text" placeholder="Ingrese su email" required>
+            <br><b>Contraseña: </b><input v-model="contraseña" type="password" placeholder="Ingrese su contraseña" required>
+            <br><b>Fecha de nacimiento: </b><input v-model="fechaNac" type="text" required>
             </div>
-        </form>
+            <hr>
+            <button @click="registrarUsuario(nombre,apellido,email,contraseña,fechaNac)">
+                <router-link to='/home'> Finalizar </router-link>
+            </button>
+        </div>
     </div>
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
-        name: "Registro"
+        name: "Registro",
+        data() {
+            return {
+                usuarios: null
+            }
+        },
+        methods: {
+            registrarUsuario(nombreU, apellidoU, emailU, contraseñaU, fechaNacimientoU) {
+                const nuevoUsuario = {
+                    nombre: nombreU,
+                    apellido: apellidoU,
+                    email: emailU,
+                    contraseña: contraseñaU,
+                    fechaNacimiento: fechaNacimientoU
+                };
+                axios.post('http://127.0.0.1:8000/api/usuarios', nuevoUsuario)
+                .then(response => {this.usuarios.push(response.data.data);
+                alert("Usuario Registrado")})
+            },
+        }
     }
 </script>
 
